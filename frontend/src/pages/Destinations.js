@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import API from "../api";
+import { useNavigate } from "react-router-dom";
 
 function Destinations() {
   const [destinations, setDestinations] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     API.get("/destinations")
@@ -23,12 +25,25 @@ function Destinations() {
         {destinations.map((d) => (
           <div className="card" key={d.id}>
 
+            <div className="destination-image-wrapper">
+              <img
+                src={d.image}
+                alt={d.name}
+                className="destination-image"
+              />
+            </div>
+
             <h3>📍 {d.name}</h3>
 
-            <p>{d.location}</p>
+            <p className="destination-description">
+              {d.description}
+            </p>
 
-            <button className="book-btn">
-              View Details
+            <button
+              className="book-btn"
+              onClick={() => navigate(`/destination/${d.id}`)}
+            >
+              View Packages
             </button>
 
           </div>

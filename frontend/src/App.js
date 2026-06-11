@@ -25,6 +25,8 @@ import AdminReviews from "./pages/AdminReviews";
 
 import AdminLogin from "./pages/AdminLogin";
 
+import DestinationPackages from "./pages/DestinationPackages";
+
 function App() {
 return ( <Router> <Navbar />
 
@@ -109,6 +111,11 @@ return ( <Router> <Navbar />
       <Route
   path="/admin-login"
   element={<AdminLogin />}
+/>
+
+<Route
+  path="/destination/:id"
+  element={<DestinationPackages />}
 />
 
 
