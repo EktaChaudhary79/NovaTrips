@@ -52,34 +52,50 @@ function DestinationPackages() {
 
 </div>
 
-      <div className="packages-container">
+      <div className="destination-packages-container">
 
         {packages.map((pkg) => (
 
-          <div className="package-card" key={pkg.id}>
+          <div className="destination-package-card" key={pkg.id}>
 
             <img
-              src={pkg.image}
-              alt={pkg.title}
-              className="package-image"
-            />
+  src={pkg.image}
+  alt={pkg.title}
+  className="destination-package-image"
+/>
 
-            <div className="package-content">
+            <div className="destination-package-content">
 
-              <h3>{pkg.title}</h3>
+  <span className="package-location">
+    📍 {destination?.name}
+  </span>
 
-              <p>{pkg.description}</p>
+  <h3>{pkg.title}</h3>
 
-              <h4>₹{pkg.price}</h4>
+  <p>{pkg.description}</p>
 
-              <button
-                className="book-btn"
-                onClick={() => navigate(`/package/${pkg.id}`)}
-              >
-                View Details
-              </button>
+  <div className="package-meta">
 
-            </div>
+    <span>🕒 5 Days / 4 Nights</span>
+
+    <span>👥 2-6 People</span>
+
+  </div>
+
+  <div className="package-footer">
+
+    <h4>₹{pkg.price}</h4>
+
+    <button
+      className="outline-btn"
+      onClick={() => navigate(`/package/${pkg.id}`)}
+    >
+      View Details
+    </button>
+
+  </div>
+
+</div>
 
           </div>
 
